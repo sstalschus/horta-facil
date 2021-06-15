@@ -35,6 +35,6 @@ This project was developed with the following technologies:
 ## :memo: Diagram
 
 <p align="center">
-  <img alt="img" src="https://whimsical.com/embed/FL1h7RCzLJSXfPFyQGq1SP@2Ux7TurymNDT6G6Yc1bj" width="100%">
+  <img alt="img" src="./.github/assets/model-database.png" width="100%">
 
 </p>
