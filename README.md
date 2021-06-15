@@ -30,12 +30,11 @@ This project was developed with the following technologies:
 
 
 
-
 -------------------------------------------------------------------------------
 
 ## :memo: Diagram
 
 <p align="center">
-  <iframe style="border:none" width="800" height="450" src="https://whimsical.com/embed/FL1h7RCzLJSXfPFyQGq1SP@2Ux7TurymNDT6G6Yc1bj"></iframe>
+  <img alt="img" src="https://whimsical.com/embed/FL1h7RCzLJSXfPFyQGq1SP@2Ux7TurymNDT6G6Yc1bj" width="100%">
 
 </p>
