@@ -1,11 +1,13 @@
 package br.com.hortafacil.model;
 
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +39,10 @@ public class Address {
 
   @Column
   private String complement;
+
+  @Column(nullable = false, updatable = false)
+  @CreationTimestamp
+  private Date createdAt;
 
   public Address() {
     UUID uuid = UUID.randomUUID();
