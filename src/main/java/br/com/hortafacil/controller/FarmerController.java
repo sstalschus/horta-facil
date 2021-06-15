@@ -26,14 +26,23 @@ public class FarmerController {
     return this.farmerService.listAllFarmers();
   }
 
-  @GetMapping("/{id}")
-  public FarmerDTO findById(@PathVariable("id") String id) {
-    return farmerService.findById(id);
+  @PostMapping("/")
+  public String create(@RequestBody Farmer farmer) {
+    return farmerService.createFarmer(farmer);
   }
 
-  @PostMapping("/{id_address}")
-  public String create(@RequestBody Farmer farmer, @PathVariable String id_address) {
-    farmerService.createFarmer(farmer, id_address);
-    return "Farmer created!";
+  @PostMapping("address/{zipcode}/{farmerEmail}")
+  public String setFarmerAddress(@PathVariable String zipcode, @PathVariable String farmerEmail) {
+    return farmerService.setFarmerAddress(zipcode, farmerEmail);
+  }
+
+  @GetMapping("product/{productName}/{farmerEmail}")
+  public void setFarmerProduct(@PathVariable String productName, @PathVariable String farmerEmail) {
+    farmerService.setFarmerProduct(productName, farmerEmail);
+  }
+
+  @GetMapping("/{city}")
+  public List<Farmer> findFarmersToCity(@PathVariable String city) {
+    return farmerService.findFarmersToCity(city);
   }
 }

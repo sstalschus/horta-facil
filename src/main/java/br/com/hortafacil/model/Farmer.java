@@ -1,16 +1,17 @@
 package br.com.hortafacil.model;
 
+import java.util.Date;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,9 +31,6 @@ public class Farmer {
   private String name;
 
   @Column(nullable = false)
-  private String password;
-
-  @Column(nullable = false)
   private String email;
 
   @Column(nullable = false)
@@ -40,6 +38,13 @@ public class Farmer {
 
   @ManyToOne
   private Address address;
+
+  @ManyToMany
+  private Set<Product> product;
+
+  @Column(nullable = false, updatable = false)
+  @CreationTimestamp
+  private Date createdAt;
 
   public Farmer() {
     UUID uuid = UUID.randomUUID();
@@ -54,5 +59,13 @@ public class Farmer {
 
   public void setAddress(Address address) {
     this.address = address;
+  }
+
+  public Set<Product> getProduct() {
+    return product;
+  }
+
+  public void setProduct(Set<Product> product) {
+    this.product = product;
   }
 }

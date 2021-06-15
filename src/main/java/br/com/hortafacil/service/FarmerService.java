@@ -1,7 +1,9 @@
 package br.com.hortafacil.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -11,8 +13,9 @@ import org.springframework.stereotype.Service;
 import br.com.hortafacil.mapper.FarmerDTO;
 import br.com.hortafacil.model.Address;
 import br.com.hortafacil.model.Farmer;
+import br.com.hortafacil.model.Product;
 import br.com.hortafacil.repository.FarmerRepository;
-import br.com.hortafacil.shared.AddressNotFoundException;
+import br.com.hortafacil.shared.AppException;
 import br.com.hortafacil.util.EncriptPassword;
 
 @Service
@@ -25,30 +28,65 @@ public class FarmerService {
   AddressService addressService;
 
   @Autowired
+  ProductService productService;
+
+  @Autowired
   private ModelMapper modelMapper;
 
-  public void createFarmer(Farmer farmer, String id_address) {
+  public String createFarmer(Farmer farmer) {
 
-    Address address = this.addressService.findById(id_address);
+    Farmer farmerAlreadyExists = this.farmerRepository.findByEmail(farmer.getEmail());
 
-    if (address == null)
-      throw new AddressNotFoundException("Address invalid");
+    if (farmerAlreadyExists != null)
+      throw new AppException("Farmer Already Exists");
+
+    this.farmerRepository.save(farmer);
+
+    return "Farmer Created";
+  }
+
+  public String setFarmerAddress(String zipcode, String farmerEmail) {
+    Address address = this.addressService.findByZipcode(zipcode);
+
+    Farmer farmer = this.farmerRepository.findByEmail(farmerEmail);
+
+    if (address == null || farmer == null)
+      throw new AppException("Invalid data");
 
     farmer.setAddress(address);
-    farmer.setPassword(EncriptPassword.codify(farmer.getPassword()));
+
     this.farmerRepository.save(farmer);
+
+    return "Add Address in Farmer!";
+  }
+
+  public void setFarmerProduct(String productName, String farmerEmail) {
+    Product product = this.productService.findByName(productName);
+
+    Farmer farmer = this.farmerRepository.findByEmail(farmerEmail);
+
+    if (farmer == null)
+      throw new AppException("Invalid data");
+
+    if (product == null) {
+      Product newProduct = new Product();
+
+      newProduct.setName(productName);
+
+      product = this.productService.create(newProduct);
+    }
+
+    farmer.getProduct().add(product);
+
+    this.farmerRepository.save(farmer);
+  }
+
+  public List<Farmer> findFarmersToCity(String city) {
+    return null;
   }
 
   public List<FarmerDTO> listAllFarmers() {
     return this.farmerRepository.findAll().stream().map(this::toFarmerDTO).collect(Collectors.toList());
-  }
-
-  public FarmerDTO findById(String id) {
-    Optional<Farmer> farmerFind = this.farmerRepository.findById(id);
-    if (farmerFind.isPresent()) {
-      return toFarmerDTO(farmerFind.get());
-    }
-    return null;
   }
 
   private FarmerDTO toFarmerDTO(Farmer farmer) {

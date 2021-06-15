@@ -8,4 +8,5 @@ import br.com.hortafacil.model.Farmer;
 @Repository
 public interface FarmerRepository extends JpaRepository<Farmer, String> {
 
+  public Farmer findByEmail(String email);
 }
