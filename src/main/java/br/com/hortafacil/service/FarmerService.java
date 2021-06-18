@@ -90,8 +90,11 @@ public class FarmerService {
   public ResponseEntity<String> consumingGoogleApi(String origin, String destiny) {
 
     RestTemplate restTemplate = new RestTemplate();
+
+    String key = null; // para testar crie sua credencial no console de desenvolvedor da google
+
     String url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations="
-        + destiny + "&mode=driving&language=pt-BR&sensor=false&key=AIzaSyAXLsmOlSl68NdKWi0WKsMIu_Aq6MDYnN4";
+        + destiny + "&mode=driving&language=pt-BR&sensor=false&key=" + key;
     ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
     return response;
   }
