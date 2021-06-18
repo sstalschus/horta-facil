@@ -14,13 +14,13 @@
 
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
+<br>
 
 <p align="center">
-  <img alt="img" src=".github/video-giphy.gif" width="100%">
+  <img alt="img" src="./.github/assets/video-giphy.gif" width="100%">
 
 </p>
 
-<br>
 
 
 ## 🚀 Technologies
@@ -54,7 +54,7 @@ Para testar a aplicação siga os passos abaixo:
 
 -> É NECESSÁRIO TER O BANCO DE DADOS POSTGRESS INSTALADO
 -> É NECESSÁRIO TER UMA CHAVE DE API DA GOOGLE 
-  <a href=https://developers.google.com/maps/documentation/distance-matrix/overview#:~:text=The%20Distance%20Matrix%20API%20is,distance%20values%20for%20each%20pair./>Docs API Google</a>
+  <a href=https://developers.google.com/maps/documentation/distance-matrix/overview#:~:text=The%20Distance%20Matrix%20API%20is,distance%20values%20for%20each%20pair./ >Docs API Google</a>
 
 [] Baixe o projeto
 [] Acesse o arquivo application.properties e defina as credênciais do seu banco
