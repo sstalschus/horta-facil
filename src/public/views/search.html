@@ -1,0 +1,31 @@
+<div style="margin-left: 10%; margin-right: 10%; margin-top: 10%;">
+  <nav class="navbar navbar-light bg-light rounded">
+    <div class="container-fluid">
+      <a class="navbar-brand">Busque uma horta
+        <img src="assets/icon.webp" alt="" style="width: 1rem">
+      </a>
+      <form class="d-flex">
+        <input class="form-control me-2" id="inputZipcode" type="search" placeholder="Digite um cep"
+          aria-label="Search">
+        <button class="btn btn-outline-secondary" onclick="findCepList()" type="button">Buscar</button>
+      </form>
+    </div>
+  </nav>
+  <div style="margin-top: 10%;">
+    <table id="table" class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Horta</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Produtos</th>
+          <th scope="col">Distância</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="alert alert-danger" role="alert" id="myAlert" style="margin-left: 10%; margin-right: 10%; display: none;">
+  Não identificamos nenhuma horta em sua cidade :(
+</div>

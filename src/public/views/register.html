@@ -1,0 +1,63 @@
+<div style="margin-left: 10%; margin-right: 10%; margin-top: 5%;">
+  <form>
+
+    <h4>Dados pessoais:</h4>
+    <br>
+    <div class="form-group">
+      <label>Endereço de email</label>
+      <input id="email" type="email" class="form-control" placeholder="Digite seu email">
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <label>Nome</label>
+        <input id="name" type="text" class="form-control" placeholder="Digite seu nome">
+        <small class="form-text text-muted">Escreva aqui o nome do seu negócio</small>
+      </div>
+      <div class="col">
+        <label>Telefone</label>
+        <input type="text" id="phone" class="form-control" placeholder="Digite seu telefone">
+      </div>
+    </div>
+    <br>
+
+    <h4>Endereço:</h4>
+    <br>
+    <div class="row">
+      <div class="col">
+        <label>Cep</label>
+        <input id="zipcode" onblur="findCep(this.value)" type="text" class="form-control" placeholder="Digite seu CEP">
+        <small class="form-text text-muted">Informe aqui o seu CEP</small>
+      </div>
+      <div class="col">
+        <label>Rua</label>
+        <input id="street" type="text" readonly class="form-control" placeholder="...">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>Bairro</label>
+        <input id="neighborhood" type="text" readonly class="form-control" placeholder="...">
+      </div>
+      <div class="col">
+        <label>Cidade</label>
+        <input id="district" type="text" readonly class="form-control" placeholder="...">
+      </div>
+    </div>
+    <br>
+
+    <h4>Produtos:</h4>
+    <br>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button onclick="addProduct()" class="btn btn-outline-secondary" type="button">Adicionar</button>
+      </div>
+      <input id="product" type="text" class="form-control" placeholder="Informe seu produto" aria-label="">
+    </div>
+    <small id="productsSmall" class="form-text text-muted">Produtos adicionados</small>
+    <br>
+    <br>
+    <button type="button" onclick="sendData()" class="btn btn-secondary">Cadastrar</button>
+  </form>
+</div>
+<script src="../js/register/register.js"></script>
