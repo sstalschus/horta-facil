@@ -3,6 +3,7 @@ package br.com.hortafacil.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,7 +43,13 @@ public class FarmerController {
   }
 
   @GetMapping("/{city}")
-  public List<Farmer> findFarmersToCity(@PathVariable String city) {
+  public List<Object> findFarmersToCity(@PathVariable String city) {
     return farmerService.findFarmersToCity(city);
   }
+
+  @GetMapping("/distance/{origin}/{destiny}")
+  public ResponseEntity<String> findFarmersToCitsy(@PathVariable String origin, @PathVariable String destiny) {
+    return farmerService.consumingGoogleApi(origin, destiny);
+  }
+
 }

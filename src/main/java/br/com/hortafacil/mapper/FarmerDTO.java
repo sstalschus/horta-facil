@@ -10,10 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FarmerDTO {
-
   private String name;
   private String phone;
+  private String email;
   private Address address;
   private Set<Product> product;
-
 }
