@@ -41,12 +41,14 @@ Client
 - CSS
 - Bootstrap
 
+<br>
 
 ## 💻 Project
 
 O Projeto se chama Horta-facil pois tem o intuito de auxiliar as pessoas a encontrarem hortas de mini-agricultores mais próximas as suas casas. 
 
 No Backend estamos consumindo a API da Google Distance Matrix para nos auxiliar no calculo da Quilometragem e de tempo de percurso dentre o usuário e as rotas. No fronted estamos consumindo a API da ViaCep para nos auxiliar na localização do endereço correto.
+<br>
 
 ## :memo: Info
 
@@ -54,21 +56,21 @@ Para testar a aplicação siga os passos abaixo:
 
 -> É NECESSÁRIO TER O BANCO DE DADOS POSTGRESS INSTALADO
 -> É NECESSÁRIO TER UMA CHAVE DE API DA GOOGLE 
-  <a href=https://developers.google.com/maps/documentation/distance-matrix/overview#:~:text=The%20Distance%20Matrix%20API%20is,distance%20values%20for%20each%20pair./ >Docs API Google</a>
-
-[] Baixe o projeto
-[] Acesse o arquivo application.properties e defina as credênciais do seu banco
-[] É necessário ter o Java na versão 8.1 + e o Maven instalados
-[] Com o terminal aberto no diretório do projeto execute os comandos para baixar as dependências e startar o servidor: 
+  <a href="https://developers.google.com/maps/documentation/distance-matrix/overview#:~:text=The%20Distance%20Matrix%20API%20is,distance%20values%20for%20each%20pair./">Docs API Google</a>
+<br>
+[x] Baixe o projeto
+[x] Acesse o arquivo application.properties e defina as credênciais do seu banco
+[x] É necessário ter o Java na versão 8.1 + e o Maven instalados
+[x] Com o terminal aberto no diretório do projeto execute os comandos para baixar as dependências e startar o servidor: 
   - mvn install
   - mvn spring-boot:run
-[] Após isso execute os seguintes comandos para startar o client-side:
+[x] Após isso execute os seguintes comandos para startar o client-side:
   - cd src/public
   - npx lite-server
 
 
 
-
+<br>
 -------------------------------------------------------------------------------
 
 ## :memo: Diagram
