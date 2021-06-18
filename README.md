@@ -58,12 +58,21 @@ Para testar a aplicação siga os passos abaixo:
 -> É NECESSÁRIO TER UMA CHAVE DE API DA GOOGLE 
   <a href="https://developers.google.com/maps/documentation/distance-matrix/overview#:~:text=The%20Distance%20Matrix%20API%20is,distance%20values%20for%20each%20pair./">Docs API Google</a>
 <br>
+
 [x] Baixe o projeto
+<br>
+
 [x] Acesse o arquivo application.properties e defina as credênciais do seu banco
+<br>
+
 [x] É necessário ter o Java na versão 8.1 + e o Maven instalados
+<br>
+
 [x] Com o terminal aberto no diretório do projeto execute os comandos para baixar as dependências e startar o servidor: 
   - mvn install
   - mvn spring-boot:run
+<br>
+
 [x] Após isso execute os seguintes comandos para startar o client-side:
   - cd src/public
   - npx lite-server
@@ -71,6 +80,7 @@ Para testar a aplicação siga os passos abaixo:
 
 
 <br>
+
 -------------------------------------------------------------------------------
 
 ## :memo: Diagram
